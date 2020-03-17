@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package grpcSpeech;
+
+service grpcSpeech {
+    rpc DetermineSpeech(SpeechRequest) returns(SpeechResponse) {}
+    rpc DetermineSkill(SpeechRequest) returns(SkillResponse) {}
+}
+
+message SpeechRequest {
+    string Message = 1;
+}
+
+message SkillResponse {
+    string URL = 1;
+}
+
+message SpeechResponse {
+    float Duration = 1; // miliseconds
+    string Message = 2;             
+    string GraphicURL = 3;
+    int32 GraphicType = 4;
+    string Error =5;
+}
