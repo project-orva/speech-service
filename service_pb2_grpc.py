@@ -14,15 +14,10 @@ class grpcSpeechStub(object):
     Args:
       channel: A grpc.Channel.
     """
-    self.DetermineSpeech = channel.unary_unary(
-        '/grpcSpeech.grpcSpeech/DetermineSpeech',
+    self.HandleSpeechRequest = channel.unary_unary(
+        '/grpcSpeech.grpcSpeech/HandleSpeechRequest',
         request_serializer=service__pb2.SpeechRequest.SerializeToString,
         response_deserializer=service__pb2.SpeechResponse.FromString,
-        )
-    self.DetermineSkill = channel.unary_unary(
-        '/grpcSpeech.grpcSpeech/DetermineSkill',
-        request_serializer=service__pb2.SpeechRequest.SerializeToString,
-        response_deserializer=service__pb2.SkillResponse.FromString,
         )
 
 
@@ -30,14 +25,7 @@ class grpcSpeechServicer(object):
   # missing associated documentation comment in .proto file
   pass
 
-  def DetermineSpeech(self, request, context):
-    # missing associated documentation comment in .proto file
-    pass
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-  def DetermineSkill(self, request, context):
+  def HandleSpeechRequest(self, request, context):
     # missing associated documentation comment in .proto file
     pass
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
@@ -47,15 +35,10 @@ class grpcSpeechServicer(object):
 
 def add_grpcSpeechServicer_to_server(servicer, server):
   rpc_method_handlers = {
-      'DetermineSpeech': grpc.unary_unary_rpc_method_handler(
-          servicer.DetermineSpeech,
+      'HandleSpeechRequest': grpc.unary_unary_rpc_method_handler(
+          servicer.HandleSpeechRequest,
           request_deserializer=service__pb2.SpeechRequest.FromString,
           response_serializer=service__pb2.SpeechResponse.SerializeToString,
-      ),
-      'DetermineSkill': grpc.unary_unary_rpc_method_handler(
-          servicer.DetermineSkill,
-          request_deserializer=service__pb2.SpeechRequest.FromString,
-          response_serializer=service__pb2.SkillResponse.SerializeToString,
       ),
   }
   generic_handler = grpc.method_handlers_generic_handler(

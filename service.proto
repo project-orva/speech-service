@@ -3,22 +3,18 @@ syntax = "proto3";
 package grpcSpeech;
 
 service grpcSpeech {
-    rpc DetermineSpeech(SpeechRequest) returns(SpeechResponse) {}
-    rpc DetermineSkill(SpeechRequest) returns(SkillResponse) {}
+    rpc HandleSpeechRequest(SpeechRequest) returns(SpeechResponse) {}
 }
 
 message SpeechRequest {
     string Message = 1;
 }
 
-message SkillResponse {
-    string URL = 1;
-}
-
 message SpeechResponse {
-    float Duration = 1; // miliseconds
+    float Accuracy = 1; // range 0.0-1.0 
     string Message = 2;             
     string GraphicURL = 3;
-    int32 GraphicType = 4;
-    string Error =5;
+    int32 GraphicType = 4;    
+    string FowardAddress = 6; // if this exists on the response, foward the request to a skill.
+    float Duration = 7; // miliseconds
 }

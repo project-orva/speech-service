@@ -18,7 +18,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='grpcSpeech',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=b'\n\rservice.proto\x12\ngrpcSpeech\" \n\rSpeechRequest\x12\x0f\n\x07Message\x18\x01 \x01(\t\"\x1c\n\rSkillResponse\x12\x0b\n\x03URL\x18\x01 \x01(\t\"k\n\x0eSpeechResponse\x12\x10\n\x08\x44uration\x18\x01 \x01(\x02\x12\x0f\n\x07Message\x18\x02 \x01(\t\x12\x12\n\nGraphicURL\x18\x03 \x01(\t\x12\x13\n\x0bGraphicType\x18\x04 \x01(\x05\x12\r\n\x05\x45rror\x18\x05 \x01(\t2\xa2\x01\n\ngrpcSpeech\x12J\n\x0f\x44\x65termineSpeech\x12\x19.grpcSpeech.SpeechRequest\x1a\x1a.grpcSpeech.SpeechResponse\"\x00\x12H\n\x0e\x44\x65termineSkill\x12\x19.grpcSpeech.SpeechRequest\x1a\x19.grpcSpeech.SkillResponse\"\x00\x62\x06proto3'
+  serialized_pb=b'\n\rservice.proto\x12\ngrpcSpeech\" \n\rSpeechRequest\x12\x0f\n\x07Message\x18\x01 \x01(\t\"\x85\x01\n\x0eSpeechResponse\x12\x10\n\x08\x41\x63\x63uracy\x18\x01 \x01(\x02\x12\x0f\n\x07Message\x18\x02 \x01(\t\x12\x12\n\nGraphicURL\x18\x03 \x01(\t\x12\x13\n\x0bGraphicType\x18\x04 \x01(\x05\x12\x15\n\rFowardAddress\x18\x06 \x01(\t\x12\x10\n\x08\x44uration\x18\x07 \x01(\x02\x32\\\n\ngrpcSpeech\x12N\n\x13HandleSpeechRequest\x12\x19.grpcSpeech.SpeechRequest\x1a\x1a.grpcSpeech.SpeechResponse\"\x00\x62\x06proto3'
 )
 
 
@@ -55,37 +55,6 @@ _SPEECHREQUEST = _descriptor.Descriptor(
 )
 
 
-_SKILLRESPONSE = _descriptor.Descriptor(
-  name='SkillResponse',
-  full_name='grpcSpeech.SkillResponse',
-  filename=None,
-  file=DESCRIPTOR,
-  containing_type=None,
-  fields=[
-    _descriptor.FieldDescriptor(
-      name='URL', full_name='grpcSpeech.SkillResponse.URL', index=0,
-      number=1, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=b"".decode('utf-8'),
-      message_type=None, enum_type=None, containing_type=None,
-      is_extension=False, extension_scope=None,
-      serialized_options=None, file=DESCRIPTOR),
-  ],
-  extensions=[
-  ],
-  nested_types=[],
-  enum_types=[
-  ],
-  serialized_options=None,
-  is_extendable=False,
-  syntax='proto3',
-  extension_ranges=[],
-  oneofs=[
-  ],
-  serialized_start=63,
-  serialized_end=91,
-)
-
-
 _SPEECHRESPONSE = _descriptor.Descriptor(
   name='SpeechResponse',
   full_name='grpcSpeech.SpeechResponse',
@@ -94,7 +63,7 @@ _SPEECHRESPONSE = _descriptor.Descriptor(
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='Duration', full_name='grpcSpeech.SpeechResponse.Duration', index=0,
+      name='Accuracy', full_name='grpcSpeech.SpeechResponse.Accuracy', index=0,
       number=1, type=2, cpp_type=6, label=1,
       has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
@@ -122,9 +91,16 @@ _SPEECHRESPONSE = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='Error', full_name='grpcSpeech.SpeechResponse.Error', index=4,
-      number=5, type=9, cpp_type=9, label=1,
+      name='FowardAddress', full_name='grpcSpeech.SpeechResponse.FowardAddress', index=4,
+      number=6, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='Duration', full_name='grpcSpeech.SpeechResponse.Duration', index=5,
+      number=7, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -140,12 +116,11 @@ _SPEECHRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=93,
-  serialized_end=200,
+  serialized_start=64,
+  serialized_end=197,
 )
 
 DESCRIPTOR.message_types_by_name['SpeechRequest'] = _SPEECHREQUEST
-DESCRIPTOR.message_types_by_name['SkillResponse'] = _SKILLRESPONSE
 DESCRIPTOR.message_types_by_name['SpeechResponse'] = _SPEECHRESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -155,13 +130,6 @@ SpeechRequest = _reflection.GeneratedProtocolMessageType('SpeechRequest', (_mess
   # @@protoc_insertion_point(class_scope:grpcSpeech.SpeechRequest)
   })
 _sym_db.RegisterMessage(SpeechRequest)
-
-SkillResponse = _reflection.GeneratedProtocolMessageType('SkillResponse', (_message.Message,), {
-  'DESCRIPTOR' : _SKILLRESPONSE,
-  '__module__' : 'service_pb2'
-  # @@protoc_insertion_point(class_scope:grpcSpeech.SkillResponse)
-  })
-_sym_db.RegisterMessage(SkillResponse)
 
 SpeechResponse = _reflection.GeneratedProtocolMessageType('SpeechResponse', (_message.Message,), {
   'DESCRIPTOR' : _SPEECHRESPONSE,
@@ -178,25 +146,16 @@ _GRPCSPEECH = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=203,
-  serialized_end=365,
+  serialized_start=199,
+  serialized_end=291,
   methods=[
   _descriptor.MethodDescriptor(
-    name='DetermineSpeech',
-    full_name='grpcSpeech.grpcSpeech.DetermineSpeech',
+    name='HandleSpeechRequest',
+    full_name='grpcSpeech.grpcSpeech.HandleSpeechRequest',
     index=0,
     containing_service=None,
     input_type=_SPEECHREQUEST,
     output_type=_SPEECHRESPONSE,
-    serialized_options=None,
-  ),
-  _descriptor.MethodDescriptor(
-    name='DetermineSkill',
-    full_name='grpcSpeech.grpcSpeech.DetermineSkill',
-    index=1,
-    containing_service=None,
-    input_type=_SPEECHREQUEST,
-    output_type=_SKILLRESPONSE,
     serialized_options=None,
   ),
 ])
